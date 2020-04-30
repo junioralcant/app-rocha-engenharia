@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image} from 'react-native';
+import {SafeAreaView} from 'react-native';
 
 import {
   Container,
@@ -19,7 +19,7 @@ import Luck from '../../assets/dados.png';
 import About from '../../assets/question.png';
 import Camera from '../../assets/camera.png';
 
-export default function Home() {
+export default function Home({navigation}) {
   return (
     <Container>
       <BoxContent>
@@ -28,7 +28,7 @@ export default function Home() {
           <UserIncon source={User} />
         </InfoUser>
         <BoxOption>
-          <Option>
+          <Option onPress={() => navigation.navigate('DangerRegister')}>
             <IconContent source={Camera} />
             <TextContent>Registar Perigo</TextContent>
           </Option>

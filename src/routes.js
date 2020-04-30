@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import SignIn from './pages/SignIn';
 import Home from './pages/Home';
+import DangerRegister from './pages/DangerRegister';
 
 export default function Routes() {
   const Stack = createStackNavigator();
@@ -20,6 +21,12 @@ export default function Routes() {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{headerTransparent: true, headerTitle: false}}
+        />
+
+        <Stack.Screen
+          name="DangerRegister"
+          component={DangerRegister}
           options={{headerTransparent: true, headerTitle: false}}
         />
       </Stack.Navigator>
