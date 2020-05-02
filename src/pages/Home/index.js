@@ -42,7 +42,7 @@ export default function Home({navigation}) {
             <IconContent source={About} />
             <TextContent>Sobre o App</TextContent>
           </Option>
-          <Option>
+          <Option onPress={() => navigation.navigate('DangerList')}>
             <IconContent source={Danger} />
             <TextContent>Perigos Registrados</TextContent>
           </Option>
