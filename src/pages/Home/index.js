@@ -1,5 +1,4 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
 
 import {
   Container,
@@ -32,19 +31,21 @@ export default function Home({navigation}) {
             <IconContent source={Camera} />
             <TextContent>Registar Perigo</TextContent>
           </Option>
-          <Option>
-            <IconContent source={Luck} />
-            <TextContent>Nº da Sorte</TextContent>
-          </Option>
-        </BoxOption>
-        <BoxOption>
-          <Option>
-            <IconContent source={About} />
-            <TextContent>Sobre o App</TextContent>
-          </Option>
+
           <Option onPress={() => navigation.navigate('DangerList')}>
             <IconContent source={Danger} />
             <TextContent>Perigos Registrados</TextContent>
+          </Option>
+        </BoxOption>
+        <BoxOption>
+          <Option onPress={() => navigation.navigate('About')}>
+            <IconContent source={About} />
+            <TextContent>Sobre o App</TextContent>
+          </Option>
+
+          <Option>
+            <IconContent source={Luck} />
+            <TextContent>Nº da Sorte</TextContent>
           </Option>
         </BoxOption>
       </BoxContent>

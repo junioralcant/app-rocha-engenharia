@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 
 import {
   Container,
@@ -20,7 +20,7 @@ export default function DangerList() {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
-        <Title>Lista de Perigos</Title>
+        <Title>Perigos Registrados</Title>
 
         <BoxList>
           <BoxContent>
