@@ -14,15 +14,19 @@ export const Image = styled.Image`
   max-width: 100%;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 200px;
-  background: #eff3f6;
-  opacity: 0.4;
+  background: #208eeb;
 `;
 
 export const TextBanner = styled.Text`
   position: absolute;
-  margin-top: 23%;
+  top: 50%;
+  padding: 4px;
+  border-radius: 5px;
   align-self: center;
   font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.3);
 `;
 
 export const BoxInput = styled.View`
@@ -54,10 +58,11 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   background-color: #208eeb;
-  width: 100%;
+  width: 90%;
   height: 55px;
   border-radius: 30px;
-  margin-bottom: 20px;
+  margin-top: 5%;
+  margin-bottom: 5px;
 `;
 
 export const TextButton = styled.Text`

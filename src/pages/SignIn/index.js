@@ -12,7 +12,7 @@ import {
   TextButton,
   TextBanner,
 } from './styles';
-import Banner from '../../assets/catavento.jpeg';
+import Banner from '../../assets/worker03.png';
 
 export default function SignIn({navigation}) {
   return (
@@ -28,10 +28,10 @@ export default function SignIn({navigation}) {
           <TouchableOpacity>
             <ForgotPassword>Resgatar Senha</ForgotPassword>
           </TouchableOpacity>
-          <Button onPress={() => navigation.navigate('Home')}>
-            <TextButton>LOGIN</TextButton>
-          </Button>
         </BoxInput>
+        <Button onPress={() => navigation.navigate('Home')}>
+          <TextButton>LOGIN</TextButton>
+        </Button>
       </Container>
     </ScrollView>
   );
