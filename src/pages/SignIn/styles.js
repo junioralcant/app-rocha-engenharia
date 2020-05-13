@@ -53,6 +53,14 @@ export const ForgotPassword = styled.Text`
   margin-bottom: 35px;
 `;
 
+export const Erro = styled.Text`
+  align-self: center;
+  text-align: center;
+  color: #ff4d4d;
+  font-weight: bold;
+  font-size: 16px;
+`;
+
 export const Button = styled.TouchableOpacity`
   display: flex;
   align-items: center;

@@ -1,4 +1,5 @@
 import React from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import {
   Container,
@@ -19,11 +20,17 @@ import About from '../../assets/question.png';
 import Camera from '../../assets/camera.png';
 
 export default function Home({navigation}) {
+  async function exit() {
+    await AsyncStorage.removeItem('@TOLIGADO:token');
+    await AsyncStorage.removeItem('userId');
+    navigation.navigate('SignIn');
+  }
+
   return (
     <Container>
       <BoxContent>
         <InfoUser>
-          <NameUser>Junior Marques</NameUser>
+          <NameUser onPress={exit}>Junior Marques</NameUser>
           <UserIncon source={User} />
         </InfoUser>
         <BoxOption>
