@@ -57,6 +57,7 @@ export const Data = styled.Text`
   right: 10px;
   color: #fff;
   font-size: 16px;
+  font-weight: bold;
 `;
 
 export const TextHeader = styled.Text`
@@ -65,6 +66,9 @@ export const TextHeader = styled.Text`
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 0 3px;
 `;
 
 export const BoxDescription = styled.View`
