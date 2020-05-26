@@ -48,7 +48,7 @@ export const Preview = styled.Image`
   height: 100px;
   margin-bottom: 15px;
   align-self: center;
-  border-radius: 4;
+  border-radius: 4px;
 `;
 
 export const Input = styled.TextInput`
@@ -58,6 +58,15 @@ export const Input = styled.TextInput`
   margin: 0 0 15px 0;
   border-radius: 30px;
   padding-left: 15px;
+`;
+
+export const Erro = styled.Text`
+  align-self: center;
+  text-align: center;
+  color: #ff4d4d;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -73,4 +82,9 @@ export const Button = styled.TouchableOpacity`
 
 export const TextButton = styled.Text`
   color: #fff;
+`;
+
+export const Loading = styled.View`
+  width: 60px;
+  height: 60px;
 `;

@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import {ScrollView} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
+import api from '../../Services/api';
+
+import {ActivityIndicator} from 'react-native';
+
 import {
   Container,
   BoxContent,
@@ -13,19 +17,26 @@ import {
   IconPhoto,
   TextPhoto,
   Preview,
+  Loading,
+  Erro,
 } from './styles';
 
 import Camera from '../../assets/interface.png';
 
-export default function DangerRegister() {
+export default function DangerRegister({navigation}) {
   const [preview, setPreview] = useState();
+  const [path, setPath] = useState(null);
+  const [location, setLocation] = useState('');
+  const [description, setDescription] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   function handlerImage() {
     ImagePicker.showImagePicker(
       {
         title: 'Selecionar imagem',
       },
-      upload => {
+      (upload) => {
         if (upload.error) {
           console.log('Error');
         } else if (upload.didCancel) {
@@ -35,27 +46,42 @@ export default function DangerRegister() {
             uri: `data:image/jpeg;base64,${upload.data}`, // obj do tipo base 64
           };
 
-          let prefix;
-          let ext;
-
-          if (upload.fileName) {
-            [prefix, ext] = upload.fileName.split('.');
-            ext = ext.toLowerCase() == 'heic' ? 'jpg' : ext; // se o valor dessa da extensão for igual a heic substitua para jpg se não  deixe como esta
-          } else {
-            prefix = new Date().getTime();
-            ext = 'jpg';
-          }
-          const image = {
-            uri: upload.uri,
-            type: upload.type,
-            name: `${prefix}.${ext}`,
-          };
-
           setPreview(preview);
+          setPath(upload);
         }
       },
     );
   }
+
+  console.log(path);
+
+  async function handlerSendDanger() {
+    if (path === null) {
+      setError('Tire uma foto para continuar');
+    } else {
+      try {
+        setLoading(true);
+        const data = new FormData();
+
+        data.append('file', {
+          name: path.fileName,
+          uri: path.uri,
+          type: path.type,
+        });
+        data.append('location', location);
+        data.append('description', description);
+
+        await api.post('/dangers', data);
+        setLoading(false);
+
+        alert('Registro enviado para análise');
+        navigation.navigate('Home');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
@@ -67,12 +93,26 @@ export default function DangerRegister() {
             <IconPhoto source={Camera} />
           </BoxPhoto>
           {preview && <Preview source={preview} />}
-          <Input placeholder="Descrição do ocorrido" />
-          <Input placeholder="Local" />
-          <Input placeholder="Data" />
-          <Button>
-            <TextButton>ENVIAR</TextButton>
-          </Button>
+          <Input
+            onChangeText={setLocation}
+            value={location}
+            placeholder="Local"
+          />
+          <Input
+            onChangeText={setDescription}
+            value={description}
+            placeholder="Descrição do ocorrido"
+          />
+          {error !== 0 && <Erro>{error}</Erro>}
+          {loading ? (
+            <Loading>
+              <ActivityIndicator size="large" color="#208eeb" />
+            </Loading>
+          ) : (
+            <Button onPress={handlerSendDanger}>
+              <TextButton>ENVIAR</TextButton>
+            </Button>
+          )}
         </BoxContent>
       </Container>
     </ScrollView>
