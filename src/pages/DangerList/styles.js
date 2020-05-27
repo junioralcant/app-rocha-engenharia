@@ -51,6 +51,18 @@ export const Background = styled.Image`
   border-top-right-radius: 30px;
 `;
 
+export const Approved = styled.Text`
+  position: absolute;
+  top: 35px;
+  right: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  background: #fcba03;
+  padding: 1px 5px;
+  border-radius: 3px;
+`;
+
 export const Data = styled.Text`
   position: absolute;
   top: 10px;

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {ScrollView} from 'react-native';
 import {parseFromTimeZone, formatToTimeZone} from 'date-fns-timezone';
 
+import {Text} from 'react-native';
+
 import api from '../../Services/api';
 
 import {
@@ -15,6 +17,7 @@ import {
   TextHeader,
   TextDescription,
   Background,
+  Approved,
 } from './styles';
 
 export default function DangerList() {
@@ -49,6 +52,8 @@ export default function DangerList() {
               <BoxContent key={danger._id}>
                 <Header>
                   <Background source={{uri: `${danger.image.url}`}} />
+                  {!danger.approved && <Approved>Em análise</Approved>}
+
                   <Data>{date}</Data>
                   <TextHeader>{danger.location}</TextHeader>
                 </Header>
