@@ -50,7 +50,7 @@ export default function Home({navigation}) {
             <TextContent>Sobre o App</TextContent>
           </Option>
 
-          <Option>
+          <Option onPress={() => navigation.navigate('Draws')}>
             <IconContent source={Luck} />
             <TextContent>Nº da Sorte</TextContent>
           </Option>
