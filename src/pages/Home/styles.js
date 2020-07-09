@@ -33,10 +33,11 @@ export const UserIncon = styled.Image`
   margin: 0 10% 0 5px;
 `;
 
-export const NameUser = styled.Text`
+export const Exit = styled.Text`
   color: #fff;
   font-weight: bold;
   font-size: 15px;
+  margin-right: 10%;
 `;
 
 export const BoxOption = styled.View`

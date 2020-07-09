@@ -7,13 +7,11 @@ import {
   BoxOption,
   Option,
   InfoUser,
-  UserIncon,
-  NameUser,
+  Exit,
   TextContent,
   IconContent,
 } from './styles';
 
-import User from '../../assets/social.png';
 import Danger from '../../assets/perigo.png';
 import Luck from '../../assets/dados.png';
 import About from '../../assets/question.png';
@@ -30,8 +28,7 @@ export default function Home({navigation}) {
     <Container>
       <BoxContent>
         <InfoUser>
-          <NameUser onPress={exit}>Junior Marques</NameUser>
-          <UserIncon source={User} />
+          <Exit onPress={exit}>Sair</Exit>
         </InfoUser>
         <BoxOption>
           <Option onPress={() => navigation.navigate('DangerRegister')}>
