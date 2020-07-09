@@ -11,7 +11,6 @@ import {
   Image,
   BoxInput,
   Input,
-  ForgotPassword,
   Button,
   TextButton,
   TextBanner,
@@ -43,8 +42,8 @@ export default function SignIn({navigation}) {
   }, [navigation]);
 
   async function handleSignInPress() {
-    if (cpf.length === 0 || password.length === 0) {
-      setError('Preencha usuário e senha para continuar!');
+    if (cpf.length === 0) {
+      setError('Preencha cpf para continuar!');
     } else {
       try {
         const response = await api.post('/sessions', {
@@ -66,7 +65,7 @@ export default function SignIn({navigation}) {
         );
       } catch (_err) {
         console.log(_err);
-        setError('Houve um problema com o login, verifique seu CPF e Senha!');
+        setError('Houve um problema com o login, verifique seu CPF!');
       }
     }
   }
@@ -85,18 +84,8 @@ export default function SignIn({navigation}) {
             autoCapitalize={'none'}
             autoCorrect={false}
           />
-          <Input
-            onChangeText={setPassword}
-            value={password}
-            placeholder="Informe sea senha"
-            autoCapitalize={'none'}
-            autoCorrect={false}
-            secureTextEntry={true}
-          />
+
           {error !== 0 && <Erro>{error}</Erro>}
-          <TouchableOpacity>
-            <ForgotPassword>Resgatar Senha</ForgotPassword>
-          </TouchableOpacity>
         </BoxInput>
         <Button onPress={handleSignInPress}>
           <TextButton>LOGIN</TextButton>
