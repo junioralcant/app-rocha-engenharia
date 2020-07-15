@@ -76,3 +76,8 @@ export const Button = styled.TouchableOpacity`
 export const TextButton = styled.Text`
   color: #fff;
 `;
+
+export const Loading = styled.View`
+  width: 60px;
+  height: 60px;
+`;

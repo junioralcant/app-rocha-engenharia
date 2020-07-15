@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {TouchableOpacity, ScrollView} from 'react-native';
+import {TouchableOpacity, ScrollView, ActivityIndicator} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {CommonActions} from '@react-navigation/native';
 
@@ -15,14 +15,15 @@ import {
   TextButton,
   TextBanner,
   Erro,
+  Loading,
 } from './styles';
 
 import Banner from '../../assets/worker03.png';
 
 export default function SignIn({navigation}) {
   const [cpf, setCpf] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     AsyncStorage.getItem('userId').then((userId) => {
@@ -46,9 +47,10 @@ export default function SignIn({navigation}) {
       setError('Preencha cpf para continuar!');
     } else {
       try {
+        setLoading(true);
+
         const response = await api.post('/sessions', {
           cpf,
-          password,
         });
 
         await AsyncStorage.setItem('@TOLIGADO:token', response.data.token);
@@ -63,6 +65,8 @@ export default function SignIn({navigation}) {
             ],
           }),
         );
+
+        setLoading(false);
       } catch (_err) {
         console.log(_err);
         setError('Houve um problema com o login, verifique seu CPF!');
@@ -87,9 +91,17 @@ export default function SignIn({navigation}) {
 
           {error !== 0 && <Erro>{error}</Erro>}
         </BoxInput>
-        <Button onPress={handleSignInPress}>
-          <TextButton>LOGIN</TextButton>
-        </Button>
+
+        {error !== 0 && <Erro>{error}</Erro>}
+        {loading ? (
+          <Loading>
+            <ActivityIndicator size="large" color="#208eeb" />
+          </Loading>
+        ) : (
+          <Button onPress={handleSignInPress}>
+            <TextButton>LOGIN</TextButton>
+          </Button>
+        )}
       </Container>
     </ScrollView>
   );
