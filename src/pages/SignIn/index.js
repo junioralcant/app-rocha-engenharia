@@ -70,6 +70,7 @@ export default function SignIn({navigation}) {
       } catch (_err) {
         console.log(_err);
         setError('Houve um problema com o login, verifique seu CPF!');
+        setLoading(false);
       }
     }
   }
