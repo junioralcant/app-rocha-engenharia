@@ -2,7 +2,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const api = axios.create({
-  baseURL: 'http://172.17.0.1:3001',
+  baseURL: 'https://api-to-ligado.herokuapp.com',
 });
 
 api.interceptors.request.use(async (config) => {
