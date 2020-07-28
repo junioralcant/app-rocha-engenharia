@@ -1,5 +1,6 @@
 import React from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
+import {CommonActions} from '@react-navigation/native';
 
 import {
   Container,
@@ -21,7 +22,16 @@ export default function Home({navigation}) {
   async function exit() {
     await AsyncStorage.removeItem('@TOLIGADO:token');
     await AsyncStorage.removeItem('userId');
-    navigation.navigate('SignIn');
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          {
+            name: 'SignIn',
+          },
+        ],
+      }),
+    );
   }
 
   return (
