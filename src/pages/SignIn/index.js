@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {TouchableOpacity, ScrollView, ActivityIndicator} from 'react-native';
+import {
+  TouchableOpacity,
+  ScrollView,
+  ActivityIndicator,
+  StyleSheet,
+} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {CommonActions} from '@react-navigation/native';
 
@@ -16,9 +21,18 @@ import {
   TextBanner,
   Erro,
   Loading,
+  BannerLogo,
 } from './styles';
 
-import Banner from '../../assets/worker03.png';
+import Banner from '../../assets/persona.png';
+import Logo from '../../assets/logorocha.png';
+
+const styles = StyleSheet.create({
+  logo: {
+    resizeMode: 'stretch',
+    width: 200,
+  },
+});
 
 export default function SignIn({navigation}) {
   const [cpf, setCpf] = useState('');
@@ -79,7 +93,7 @@ export default function SignIn({navigation}) {
       <Container>
         <BoxBanner>
           <Image source={Banner} />
-          <TextBanner>Seja bem vindo!</TextBanner>
+          <TextBanner>Tô Ligado SSMA</TextBanner>
         </BoxBanner>
         <BoxInput>
           <Input
@@ -103,6 +117,8 @@ export default function SignIn({navigation}) {
             <TextButton>LOGIN</TextButton>
           </Button>
         )}
+
+        <BannerLogo style={styles.logo} source={Logo} />
       </Container>
     </ScrollView>
   );

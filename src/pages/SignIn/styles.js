@@ -11,22 +11,25 @@ export const BoxBanner = styled.ImageBackground``;
 
 export const Image = styled.Image`
   max-height: 350px;
-  max-width: 100%;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 200px;
-  background: #208eeb;
+  max-width: 40%;
+`;
+
+export const BannerLogo = styled.Image`
+  margin-top: 20px;
+  max-height: 40px;
+  max-width: 30%;
 `;
 
 export const TextBanner = styled.Text`
   position: absolute;
-  top: 50%;
+  top: 36%;
+  left: 31%;
   padding: 4px;
   border-radius: 5px;
   align-self: center;
-  font-size: 20px;
-  color: #fff;
+  font-size: 19px;
+  color: #208eeb;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.3);
 `;
 
 export const BoxInput = styled.View`
@@ -69,7 +72,7 @@ export const Button = styled.TouchableOpacity`
   width: 90%;
   height: 55px;
   border-radius: 30px;
-  margin-top: 5%;
+  margin-top: -8%;
   margin-bottom: 5px;
 `;
 
