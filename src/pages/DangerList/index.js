@@ -36,7 +36,7 @@ export default function DangerList() {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
-        <Title>Perigos Registrados</Title>
+        <Title>Registros</Title>
 
         <BoxList>
           {dangers.map((danger) => {

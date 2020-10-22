@@ -12,6 +12,7 @@ export const Title = styled.Text`
   font-size: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
+  color: #208eeb;
 `;
 
 export const BoxList = styled.View`
