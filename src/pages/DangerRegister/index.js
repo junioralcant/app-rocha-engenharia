@@ -86,7 +86,7 @@ export default function DangerRegister({navigation}) {
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
         <BoxContent>
-          <Title>Registrar Perigo</Title>
+          <Title>Registrar</Title>
 
           <BoxPhoto onPress={() => handlerImage()}>
             <TextPhoto>Foto</TextPhoto>
