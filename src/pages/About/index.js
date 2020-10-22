@@ -1,33 +1,48 @@
 import React from 'react';
-import {View, Text, Image, ScrollView} from 'react-native';
 
-import {Container, Header, Title, BoxContent, TextInfo} from './styles';
+import {StyleSheet} from 'react-native';
 
-import background from '../../assets/catavento.jpeg';
+import {Container, Header, Title, BoxContent, TextInfo, Image} from './styles';
+
+import Banner from '../../assets/persona.png';
+
+const styles = StyleSheet.create({
+  banner: {
+    resizeMode: 'stretch',
+    width: 200,
+  },
+});
 
 export default function About() {
   return (
     <Container>
       <Header>
         <Title>Sobre o App</Title>
+
+        <Image source={Banner} style={styles.banner} />
       </Header>
       <BoxContent>
         <TextInfo>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-          venenatis, commodo odio eu, dapibus ligula. Quisque imperdiet dapibus
-          est, posuere faucibus mauris faucibus vitae.
+          O app "TÔ LIGADO SSMA" aguça a percepção de riscos de todos aqueles
+          que vestem a camisa da prevenção.
         </TextInfo>
 
         <TextInfo>
-          Cras dignissim nulla quis volutpat venenatis. Cras bibendum nibh eu
-          velit bibendum, ac accumsan quam dapibus. Pellentesque nec lectus id
-          lectus malesuada tempus at pharetra leo.
+          É uma ferramenta moderna que garante o registro de todos os riscos de
+          incidentes.
         </TextInfo>
 
         <TextInfo>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-          venenatis, commodo odio eu, dapibus ligula. Quisque imperdiet dapibus
-          est, posuere faucibus mauris faucibus vitae.
+          O sistema de gestão recebe, avalia, aprova o registro offline e gera
+          um código da sorte
+        </TextInfo>
+
+        <TextInfo>
+          O app proporciona sorteios mensais e premia os mais engajados.
+        </TextInfo>
+
+        <TextInfo>
+          Com o app todos se tornam multiplicadores da prevenção.
         </TextInfo>
       </BoxContent>
     </Container>

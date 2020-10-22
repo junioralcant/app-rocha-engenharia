@@ -16,14 +16,20 @@ export const Header = styled.View`
   top: 0px;
   width: 100%;
   height: 40%;
-  background-color: #208eeb;
+`;
+
+export const Image = styled.Image`
+  max-height: 200px;
+  max-width: 25%;
+  margin-top: -5%;
 `;
 
 export const Title = styled.Text`
   font-size: 20px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  color: #fff;
+  color: #208eeb;
+  position: absolute;
+  left: 60%;
+  bottom: 58%;
 `;
 
 export const BoxContent = styled.View`
@@ -39,6 +45,9 @@ export const BoxContent = styled.View`
 
 export const TextInfo = styled.Text`
   font-size: 17px;
+  width: 90%;
   margin-bottom: 20px;
   text-align: center;
+  color: #208eeb;
+  font-weight: bold;
 `;
