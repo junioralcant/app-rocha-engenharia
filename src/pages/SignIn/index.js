@@ -104,6 +104,7 @@ export default function SignIn({navigation}) {
             placeholder="Informe seu CPF"
             autoCapitalize={'none'}
             autoCorrect={false}
+            keyboardType="numeric"
           />
 
           {error !== 0 && <Erro>{error}</Erro>}
