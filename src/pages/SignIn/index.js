@@ -22,10 +22,12 @@ import {
   Erro,
   Loading,
   BannerLogo,
+  BookBox,
 } from './styles';
 
 import Banner from '../../assets/persona.png';
 import Logo from '../../assets/logorocha.png';
+import Book from '../../assets/book.png';
 
 const styles = StyleSheet.create({
   logo: {
@@ -93,7 +95,7 @@ export default function SignIn({navigation}) {
       <Container>
         <BoxBanner>
           <Image source={Banner} />
-          <TextBanner>Tô Ligado SSMA</TextBanner>
+          <BookBox source={Book} />
         </BoxBanner>
         <BoxInput>
           <Input

@@ -10,8 +10,15 @@ export const Container = styled.SafeAreaView`
 export const BoxBanner = styled.ImageBackground``;
 
 export const Image = styled.Image`
-  max-height: 350px;
+  max-height: 330px;
+  max-width: 43%;
+`;
+export const BookBox = styled.Image`
+  max-height: 300px;
   max-width: 40%;
+  position: absolute;
+  margin-top: -10px;
+  left: -115px;
 `;
 
 export const BannerLogo = styled.Image`
