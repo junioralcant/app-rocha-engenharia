@@ -16,35 +16,48 @@ export const Title = styled.Text`
 
 export const BoxContent = styled.View`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
-  background-color: #208eeb;
-  height: 100px;
+  background-color: #fff;
   width: 96%;
-  padding: 0px 25px;
+  padding: 10px 25px;
   border-radius: 25px;
   margin-top: 12px;
+`;
+
+export const Box = styled.View`
+  background: #2b84cf;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 `;
 
 export const Content = styled.View`
   display: flex;
   justify-content: space-between;
-  height: 50px;
 `;
 
-export const Data = styled.Text`
+export const Date = styled.Text`
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+export const Cpf = styled.Text`
   color: #fff;
-  font-size: 14px;
+  font-size: 17px;
+  font-weight: bold;
 `;
 
 export const TextHeader = styled.Text`
-  font-size: 18px;
+  font-size: 19px;
   color: #fff;
   font-weight: bold;
 `;
 
 export const TextDescription = styled.Text`
   color: #fff;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: bold;
 `;
