@@ -20,7 +20,7 @@ export const Header = styled.View`
 
 export const Image = styled.Image`
   max-height: 200px;
-  max-width: 25%;
+  max-width: 80%;
   margin-top: -5%;
 `;
 

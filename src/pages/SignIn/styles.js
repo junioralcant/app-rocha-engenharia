@@ -11,7 +11,7 @@ export const BoxBanner = styled.ImageBackground``;
 
 export const Image = styled.Image`
   max-height: 330px;
-  max-width: 43%;
+  max-width: 80%;
 `;
 export const BookBox = styled.Image`
   max-height: 300px;

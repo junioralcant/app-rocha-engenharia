@@ -4,7 +4,8 @@ import {StyleSheet} from 'react-native';
 
 import {Container, Header, Title, BoxContent, TextInfo, Image} from './styles';
 
-import Banner from '../../assets/persona.png';
+import Girl from '../../assets/girl.png';
+
 
 const styles = StyleSheet.create({
   banner: {
@@ -17,9 +18,8 @@ export default function About() {
   return (
     <Container>
       <Header>
-        <Title>Sobre o App</Title>
 
-        <Image source={Banner} style={styles.banner} />
+        <Image source={Girl} style={styles.banner} />
       </Header>
       <BoxContent>
         <TextInfo>
