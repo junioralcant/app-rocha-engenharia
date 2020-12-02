@@ -35,6 +35,7 @@ export default function DangerRegister({navigation}) {
     ImagePicker.showImagePicker(
       {
         title: 'Selecionar imagem',
+        quality: 0.5
       },
       (upload) => {
         if (upload.error) {
