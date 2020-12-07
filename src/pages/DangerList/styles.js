@@ -73,6 +73,15 @@ export const Data = styled.Text`
   font-weight: bold;
 `;
 
+export const Draw = styled.Text`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
 export const TextHeader = styled.Text`
   position: absolute;
   color: #fff;

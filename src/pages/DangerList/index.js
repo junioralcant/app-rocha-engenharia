@@ -18,6 +18,7 @@ import {
   TextDescription,
   Background,
   Approved,
+  Draw
 } from './styles';
 
 export default function DangerList() {
@@ -55,6 +56,7 @@ export default function DangerList() {
                   {!danger.approved && <Approved>Em análise</Approved>}
 
                   <Data>{date}</Data>
+                  <Draw>{danger._id}</Draw>
                   <TextHeader>{danger.location}</TextHeader>
                 </Header>
                 <BoxDescription>
