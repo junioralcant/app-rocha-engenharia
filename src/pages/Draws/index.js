@@ -56,7 +56,6 @@ export default function Draw() {
                     <Box key={idDraw._id}>
                       <Content>
                         <TextHeader>{idDraw.recordId._id}</TextHeader>
-                        {console.log(idDraw)}
                         {users.map((user) => {
                           if (user._id === idDraw.recordId.user) {
                             return (
