@@ -16,8 +16,10 @@ import {
   BoxDescription,
   TextHeader,
   TextDescription,
+  TextDisapproved,
   Background,
-  Approved,
+  Analyzed,
+  Disapproved,
   Draw
 } from './styles';
 
@@ -53,7 +55,8 @@ export default function DangerList() {
               <BoxContent key={danger._id}>
                 <Header>
                   <Background source={{uri: `${danger.image.url}`}} />
-                  {!danger.approved && <Approved>Em análise</Approved>}
+                  {!danger.analyzed && <Analyzed>Em análise</Analyzed>}
+                  {danger.disapproved && <Disapproved>Reprovado</Disapproved>}
 
                   <Data>{date}</Data>
                   <Draw>{danger._id}</Draw>
@@ -61,6 +64,8 @@ export default function DangerList() {
                 </Header>
                 <BoxDescription>
                   <TextDescription>{danger.description}</TextDescription>
+                  {danger.disapproved && <TextDisapproved>{danger.disapprovedReason}</TextDisapproved>}
+                  
                 </BoxDescription>
               </BoxContent>
             );

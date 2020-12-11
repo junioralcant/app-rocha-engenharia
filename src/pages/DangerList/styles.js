@@ -52,7 +52,7 @@ export const Background = styled.Image`
   border-top-right-radius: 30px;
 `;
 
-export const Approved = styled.Text`
+export const Analyzed = styled.Text`
   position: absolute;
   top: 35px;
   right: 8px;
@@ -60,6 +60,18 @@ export const Approved = styled.Text`
   font-size: 16px;
   font-weight: bold;
   background: #fcba03;
+  padding: 1px 5px;
+  border-radius: 3px;
+`;
+
+export const Disapproved = styled.Text`
+  position: absolute;
+  top: 35px;
+  right: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  background: #F32424;
   padding: 1px 5px;
   border-radius: 3px;
 `;
@@ -110,3 +122,13 @@ export const TextDescription = styled.Text`
   text-align: center;
   font-size: 15px;
 `;
+
+export const TextDisapproved = styled.Text`
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  background: #F32424;
+  padding: 1px 5px;
+  border-radius: 3px;
+`;
+
