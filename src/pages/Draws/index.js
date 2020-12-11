@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView, View, Text} from 'react-native';
 import moment from 'moment';
 
 import api from '../../Services/api';
@@ -45,32 +45,39 @@ export default function Draw() {
       <Container>
         <Title>Números Sorteados</Title>
 
-        <BoxContent>
-          {draws.length > 0 && (
-            <>
-              <Date>{moment(draws[0].createdAt).format('DD-MM-YYYY')}</Date>
-              {draws[0].idsDraws.map((idDraw) => (
-                <Box key={idDraw._id}>
-                  <Content>
-                    <TextHeader>{idDraw._id}</TextHeader>
-                    {users.map((user) => {
-                      if (user._id === idDraw.recordId.user) {
-                        return (
-                          <View key={user._id}>
-                            <TextDescription key={user._id}>
-                              {user.name}
-                            </TextDescription>
-                            <Cpf>CPF: {user.cpf}</Cpf>
-                          </View>
-                        );
-                      }
-                    })}
-                  </Content>
-                </Box>
-              ))}
-            </>
-          )}
-        </BoxContent>
+        {
+          draws.map(draw => {
+            return (
+              <BoxContent>
+              {draws.length > 0 && (
+                <>
+                  <Date>{moment(draw.createdAt).format('DD-MM-YYYY')}</Date>
+                  {draw.idsDraws.map((idDraw) => (
+                    <Box key={idDraw._id}>
+                      <Content>
+                        <TextHeader>{idDraw.recordId._id}</TextHeader>
+                        {console.log(idDraw)}
+                        {users.map((user) => {
+                          if (user._id === idDraw.recordId.user) {
+                            return (
+                              <View key={user._id}>
+                                <TextDescription key={user._id}>
+                                  {user.name}
+                                </TextDescription>
+                                <Cpf>CPF: {user.cpf}</Cpf>
+                              </View>
+                            );
+                          }
+                        })}
+                      </Content>
+                    </Box>
+                  ))}
+                </>
+              )}
+            </BoxContent>
+            )
+          })
+        }
       </Container>
     </ScrollView>
   );
