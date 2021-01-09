@@ -45,10 +45,9 @@ export default function Draw() {
       <Container>
         <Title>Números Sorteados</Title>
 
-        {
-          draws.map(draw => {
-            return (
-              <BoxContent>
+        {draws.map((draw) => {
+          return (
+            <BoxContent key={draw._id}>
               {draws.length > 0 && (
                 <>
                   <Date>{moment(draw.createdAt).format('DD-MM-YYYY')}</Date>
@@ -74,9 +73,8 @@ export default function Draw() {
                 </>
               )}
             </BoxContent>
-            )
-          })
-        }
+          );
+        })}
       </Container>
     </ScrollView>
   );
