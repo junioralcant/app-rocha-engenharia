@@ -35,7 +35,7 @@ export default function DangerRegister({navigation}) {
     ImagePicker.showImagePicker(
       {
         title: 'Selecionar imagem',
-        quality: 0.5
+        quality: 0.5,
       },
       (upload) => {
         if (upload.error) {
@@ -54,8 +54,6 @@ export default function DangerRegister({navigation}) {
     );
   }
 
-  console.log(path);
-
   async function handlerSendDanger() {
     if (path === null) {
       setError('Tire uma foto para continuar');
@@ -65,7 +63,7 @@ export default function DangerRegister({navigation}) {
         const data = new FormData();
 
         data.append('file', {
-          name: path.fileName,
+          name: !path.fileName ? String(Date.now()) : path.fileName,
           uri: path.uri,
           type: path.type,
         });
