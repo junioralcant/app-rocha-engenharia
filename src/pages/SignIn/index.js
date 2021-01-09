@@ -1,9 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  ScrollView,
-  ActivityIndicator,
-  StyleSheet,
-} from 'react-native';
+import {ScrollView, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {CommonActions} from '@react-navigation/native';
 
@@ -11,7 +7,6 @@ import api from '../../Services/api';
 
 import {
   Container,
-  BoxBanner,
   Image,
   BoxInput,
   Input,
@@ -20,7 +15,6 @@ import {
   Erro,
   Loading,
   BannerLogo,
-  BookBox,
 } from './styles';
 
 import Girl from '../../assets/girl.png';
@@ -90,9 +84,7 @@ export default function SignIn({navigation}) {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
-        <BoxBanner>
-          <Image source={Girl} />
-        </BoxBanner>
+        <Image source={Girl} />
         <BoxInput>
           <Input
             onChangeText={setCpf}
