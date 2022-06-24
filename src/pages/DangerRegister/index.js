@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ScrollView} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import api from '../../Services/api';
 
@@ -31,6 +32,8 @@ export default function DangerRegister({navigation}) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const [registerForUpload, setRegisterForUpload] = useState('');
+
   function handlerImage() {
     ImagePicker.showImagePicker(
       {
@@ -54,12 +57,23 @@ export default function DangerRegister({navigation}) {
     );
   }
 
+  useEffect(() => {
+    async function load() {
+      const response = await AsyncStorage.getItem('registerForUpload');
+
+      setRegisterForUpload(JSON.parse(response));
+    }
+
+    load();
+  }, []);
+
   async function handlerSendDanger() {
     if (path === null) {
       setError('Tire uma foto para continuar');
     } else {
       try {
         setLoading(true);
+        // await AsyncStorage.removeItem('registerForUpload');
         const data = new FormData();
 
         data.append('file', {
@@ -67,19 +81,69 @@ export default function DangerRegister({navigation}) {
           uri: path.uri,
           type: path.type,
         });
+
         data.append('location', location);
         data.append('description', description);
 
         await api.post('/dangers', data);
         setLoading(false);
-
         alert('Registro enviado para análise');
-        navigation.navigate('Home');
+
+        navigation.navigate('Home', {
+          params: {back: true},
+        });
+
+        // eslint-disable-next-line no-catch-shadow
       } catch (error) {
         console.log(error);
+        console.log(error.message);
+        console.log(error.status);
+
+        const data = new FormData();
+
+        data.append('file', {
+          name: !path.fileName ? String(Date.now()) : path.fileName,
+          uri: path.uri,
+          type: path.type,
+        });
+
+        data.append('location', location);
+        data.append('description', description);
+
+        let object = {
+          file: {
+            name: !path.fileName ? String(Date.now()) : path.fileName,
+            uri: path.uri,
+            type: path.type,
+          },
+          description: description,
+          location: location,
+        };
+
+        if (registerForUpload === null) {
+          await AsyncStorage.setItem(
+            'registerForUpload',
+            JSON.stringify([object]),
+          );
+        } else {
+          let registerUpdated = registerForUpload.concat(object);
+
+          await AsyncStorage.setItem(
+            'registerForUpload',
+            JSON.stringify(registerUpdated),
+          );
+        }
+
+        setLoading(false);
+        alert('Registro feito no modo off-line');
+        navigation.navigate('Home', {
+          params: {back: true},
+        });
       }
     }
   }
+
+  console.log(registerForUpload);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>

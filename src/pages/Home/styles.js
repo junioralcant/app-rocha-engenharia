@@ -22,8 +22,9 @@ export const InfoUser = styled.View`
   position: absolute;
   top: 40px;
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   justify-content: flex-end;
+  align-items: flex-end;
   width: 100%;
 `;
 
@@ -38,6 +39,13 @@ export const Exit = styled.Text`
   font-weight: bold;
   font-size: 15px;
   margin-right: 10%;
+`;
+
+export const UploadTexte = styled.Text`
+  color: #ffff00;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 5px;
 `;
 
 export const BoxOption = styled.View`
@@ -71,4 +79,11 @@ export const IconContent = styled.Image`
   height: 40px;
   width: 40px;
   margin-bottom: 10px;
+`;
+
+export const ButtonUpload = styled.TouchableOpacity`
+  margin-right: 10%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
