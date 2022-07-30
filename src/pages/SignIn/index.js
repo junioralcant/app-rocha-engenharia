@@ -81,18 +81,33 @@ export default function SignIn({navigation}) {
       }
     }
   }
+
+  function inputCPFMask(value) {
+    let valor = value;
+
+    if (valor.length <= 14) {
+      valor = valor.replace(/\D/g, '');
+      valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+      valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+      valor = valor.replace(/(\d{3})(\d{2})$/, '$1-$2');
+    }
+
+    setCpf(valor);
+  }
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
         <Image source={Girl} />
         <BoxInput>
           <Input
-            onChangeText={setCpf}
+            onChangeText={(value) => inputCPFMask(value)}
             value={cpf}
             placeholder="Informe seu CPF"
             autoCapitalize={'none'}
             autoCorrect={false}
             keyboardType="numeric"
+            maxLength={14}
           />
 
           {error !== 0 && <Erro>{error}</Erro>}
