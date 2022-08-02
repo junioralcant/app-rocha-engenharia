@@ -71,9 +71,32 @@ export const Disapproved = styled.Text`
   color: #fff;
   font-size: 16px;
   font-weight: bold;
-  background: #F32424;
+  background: #f32424;
   padding: 1px 5px;
   border-radius: 3px;
+`;
+
+export const Resolved = styled.Text`
+  position: absolute;
+  top: 65px;
+  right: 8px;
+  color: #fff;
+  background: #5fd068;
+  padding: 1px 5px;
+  border-radius: 3px;
+`;
+
+export const Resolve = styled.TouchableOpacity`
+  position: absolute;
+  top: 65px;
+  right: 8px;
+  background: #208eeb;
+  padding: 1px 5px;
+  border-radius: 3px;
+`;
+
+export const TextResolve = styled.Text`
+  color: #fff;
 `;
 
 export const Data = styled.Text`
@@ -127,8 +150,23 @@ export const TextDisapproved = styled.Text`
   color: #fff;
   text-align: center;
   font-size: 15px;
-  background: #F32424;
+  background: #f32424;
   padding: 1px 5px;
   border-radius: 3px;
 `;
 
+export const Modal = styled.View`
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+`;
+
+export const Loading = styled.View`
+  /* margin-top: 40%; */
+  width: 60px;
+  height: 60px;
+`;
