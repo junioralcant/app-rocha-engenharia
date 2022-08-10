@@ -30,7 +30,7 @@ export const BoxContent = styled.View`
   background-color: #208eeb;
   height: 200px;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10px;
   margin-top: 12px;
 `;
 
@@ -40,16 +40,16 @@ export const Header = styled.View`
   justify-content: center;
   width: 100%;
   height: 50%;
-  background-color: red;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  background: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `;
 
 export const Background = styled.Image`
   width: 100%;
   height: 100%;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `;
 
 export const Analyzed = styled.Text`

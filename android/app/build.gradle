@@ -132,8 +132,8 @@ android {
         applicationId "com.rocha.servico.toligado"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 19
-        versionName "1.8"
+        versionCode 20
+        versionName "1.9"
     }
     splits {
         abi {
