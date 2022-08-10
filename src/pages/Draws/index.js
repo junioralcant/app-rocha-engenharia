@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {ScrollView, View, Text} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import moment from 'moment';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import api from '../../Services/api';
 
@@ -19,16 +20,27 @@ import {
 export default function Draw() {
   const [draws, setDraws] = useState([]);
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    async function loadUserLogaded() {
+      const responseUser = await AsyncStorage.getItem('user');
+
+      setUser(JSON.parse(responseUser));
+    }
+
+    loadUserLogaded();
+  }, []);
 
   useEffect(() => {
     async function loadDraw() {
-      const response = await api.get('/draws');
+      const response = await api.get(`/draws?company=${user.belongsCompany}`);
 
-      setDraws(response.data.docs);
+      setDraws(response.data);
     }
 
     loadDraw();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     async function loadUser() {

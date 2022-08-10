@@ -30,7 +30,7 @@ export default function Home({navigation, route}) {
 
   async function exit() {
     await AsyncStorage.removeItem('@TOLIGADO:token');
-    await AsyncStorage.removeItem('userId');
+    await AsyncStorage.removeItem('user');
     navigation.dispatch(
       CommonActions.reset({
         index: 0,

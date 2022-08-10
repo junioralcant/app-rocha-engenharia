@@ -33,7 +33,7 @@ export default function SignIn({navigation}) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    AsyncStorage.getItem('userId').then((userId) => {
+    AsyncStorage.getItem('user').then((userId) => {
       if (userId) {
         navigation.dispatch(
           CommonActions.reset({
@@ -61,7 +61,8 @@ export default function SignIn({navigation}) {
         });
 
         await AsyncStorage.setItem('@TOLIGADO:token', response.data.token);
-        await AsyncStorage.setItem('userId', response.data.user._id);
+        await AsyncStorage.setItem('user', JSON.stringify(response.data.user));
+
         navigation.dispatch(
           CommonActions.reset({
             index: 0,
