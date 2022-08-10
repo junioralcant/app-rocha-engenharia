@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +9,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const Image = styled.Image``;
+
 export const BookBox = styled.Image`
   max-height: 300px;
   max-width: 40%;
@@ -34,21 +36,43 @@ export const TextBanner = styled.Text`
   font-weight: bold;
 `;
 
+export const Form = styled.View`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 210px;
+`;
+
 export const BoxInput = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 30px 20px 0 20px;
+  margin: 0 0 55px 0;
 `;
 
 export const Input = styled.TextInput`
   width: 100%;
   height: 55px;
-  background-color: #fff;
-  margin: 0 0 15px 0;
-  border-radius: 30px;
+  /* background-color: #fff; */
+  border-radius: 10px;
   padding-left: 15px;
+  border: 1px #15a6e4;
+`;
+
+export const BoxLabel = styled.View`
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 5px;
+  /* background: red; */
+`;
+
+export const Label = styled.Text`
+  color: #777777;
+  font-size: 16px;
 `;
 
 export const ForgotPassword = styled.Text`
@@ -59,6 +83,9 @@ export const ForgotPassword = styled.Text`
 `;
 
 export const Erro = styled.Text`
+  z-index: 1;
+  position: absolute;
+  bottom: 290px;
   align-self: center;
   text-align: center;
   color: #ff4d4d;
@@ -70,10 +97,10 @@ export const Button = styled.TouchableOpacity`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #208eeb;
+  background-color: #0e4f85;
   width: 90%;
   height: 55px;
-  border-radius: 30px;
+  border-radius: 10px;
   margin-top: -8%;
   margin-bottom: 5px;
 `;
@@ -83,6 +110,8 @@ export const TextButton = styled.Text`
 `;
 
 export const Loading = styled.View`
-  width: 60px;
-  height: 60px;
+  width: 90%;
+  height: 55px;
+  margin-top: -8%;
+  margin-bottom: 5px;
 `;

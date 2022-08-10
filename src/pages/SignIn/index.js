@@ -15,6 +15,9 @@ import {
   Erro,
   Loading,
   BannerLogo,
+  Label,
+  BoxLabel,
+  Form,
 } from './styles';
 
 import Girl from '../../assets/girl.png';
@@ -99,31 +102,36 @@ export default function SignIn({navigation}) {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
-        <Image source={Girl} />
-        <BoxInput>
-          <Input
-            onChangeText={(value) => inputCPFMask(value)}
-            value={cpf}
-            placeholder="Informe seu CPF"
-            autoCapitalize={'none'}
-            autoCorrect={false}
-            keyboardType="numeric"
-            maxLength={14}
-          />
-
-          {error !== 0 && <Erro>{error}</Erro>}
-        </BoxInput>
-
         {error !== 0 && <Erro>{error}</Erro>}
-        {loading ? (
-          <Loading>
-            <ActivityIndicator size="large" color="#208eeb" />
-          </Loading>
-        ) : (
-          <Button onPress={handleSignInPress}>
-            <TextButton>LOGIN</TextButton>
-          </Button>
-        )}
+
+        <Image source={Girl} />
+
+        <Form>
+          <BoxInput>
+            <BoxLabel>
+              <Label>CPF</Label>
+            </BoxLabel>
+            <Input
+              onChangeText={(value) => inputCPFMask(value)}
+              value={cpf}
+              placeholder="Informe seu CPF"
+              autoCapitalize={'none'}
+              autoCorrect={false}
+              keyboardType="numeric"
+              maxLength={14}
+            />
+          </BoxInput>
+
+          {loading ? (
+            <Loading>
+              <ActivityIndicator size="large" color="#0e4f85" />
+            </Loading>
+          ) : (
+            <Button onPress={handleSignInPress}>
+              <TextButton>LOGIN</TextButton>
+            </Button>
+          )}
+        </Form>
 
         <BannerLogo style={styles.logo} source={Logo} />
       </Container>
