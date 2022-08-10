@@ -30,12 +30,15 @@ import {
 export default function DangerList({navigation}) {
   const [dangers, setDangers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingDanger, setLoadingDanger] = useState(false);
 
   useEffect(() => {
     async function loadDangers() {
+      setLoadingDanger(true);
       const response = await api.get('/dangers');
 
       setDangers(response.data);
+      setLoadingDanger(false);
     }
 
     loadDangers();
@@ -106,51 +109,57 @@ export default function DangerList({navigation}) {
         <Container>
           <Title>Registros</Title>
 
-          <BoxList>
-            {dangers.map((danger) => {
-              const dateRecord = parseFromTimeZone(danger.createdAt, {
-                timeZone: 'America/Sao_Paulo',
-              });
+          {loadingDanger ? (
+            <ActivityIndicator size="large" color="#0e4f85" />
+          ) : (
+            <BoxList>
+              {dangers.map((danger) => {
+                const dateRecord = parseFromTimeZone(danger.createdAt, {
+                  timeZone: 'America/Sao_Paulo',
+                });
 
-              const date = formatToTimeZone(dateRecord, 'DD/MM/YYYY', {
-                timeZone: 'Europe/Berlin',
-              });
+                const date = formatToTimeZone(dateRecord, 'DD/MM/YYYY', {
+                  timeZone: 'Europe/Berlin',
+                });
 
-              return (
-                <BoxContent key={danger._id}>
-                  <Header>
-                    <Background source={{uri: `${danger.image.url}`}} />
+                return (
+                  <BoxContent key={danger._id}>
+                    <Header>
+                      <Background source={{uri: `${danger.image.url}`}} />
 
-                    {!danger.analyzed && <Analyzed>Em análise</Analyzed>}
-                    {danger.disapproved && <Disapproved>Reprovado</Disapproved>}
+                      {!danger.analyzed && <Analyzed>Em análise</Analyzed>}
+                      {danger.disapproved && (
+                        <Disapproved>Reprovado</Disapproved>
+                      )}
 
-                    {danger.resolved === true ? (
-                      <Resolved>Resolvido</Resolved>
-                    ) : (
-                      <Resolve
-                        onPress={() => {
-                          handlerImage(danger._id);
-                        }}>
-                        <TextResolve>Resolver</TextResolve>
-                      </Resolve>
-                    )}
+                      {danger.resolved === true ? (
+                        <Resolved>Resolvido</Resolved>
+                      ) : (
+                        <Resolve
+                          onPress={() => {
+                            handlerImage(danger._id);
+                          }}>
+                          <TextResolve>Resolver</TextResolve>
+                        </Resolve>
+                      )}
 
-                    <Data>{date}</Data>
-                    <Draw>{danger._id}</Draw>
-                    <TextHeader>{danger.location}</TextHeader>
-                  </Header>
-                  <BoxDescription>
-                    <TextDescription>{danger.description}</TextDescription>
-                    {danger.disapproved && (
-                      <TextDisapproved>
-                        {danger.disapprovedReason}
-                      </TextDisapproved>
-                    )}
-                  </BoxDescription>
-                </BoxContent>
-              );
-            })}
-          </BoxList>
+                      <Data>{date}</Data>
+                      <Draw>{danger._id}</Draw>
+                      <TextHeader>{danger.location}</TextHeader>
+                    </Header>
+                    <BoxDescription>
+                      <TextDescription>{danger.description}</TextDescription>
+                      {danger.disapproved && (
+                        <TextDisapproved>
+                          {danger.disapprovedReason}
+                        </TextDisapproved>
+                      )}
+                    </BoxDescription>
+                  </BoxContent>
+                );
+              })}
+            </BoxList>
+          )}
         </Container>
       </ScrollView>
     </>
