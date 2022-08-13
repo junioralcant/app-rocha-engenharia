@@ -1,4 +1,4 @@
-# app-rocha-engenharia
+# APP TÔ LIGADO
 
 O app "TÔ LIGADO SSMA" aguça a percepção de riscos de todos aqueles que vestem a camisa da prevenção, é uma ferramenta moderna que garante o registro de todos os riscos de incidentes. 
 
