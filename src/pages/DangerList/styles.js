@@ -28,7 +28,7 @@ export const BoxContent = styled.View`
   justify-content: space-between;
   align-items: center;
   background-color: #208eeb;
-  height: 200px;
+  height: 270px;
   width: 100%;
   border-radius: 10px;
   margin-top: 12px;
@@ -57,7 +57,7 @@ export const Analyzed = styled.Text`
   top: 35px;
   right: 8px;
   color: #fff;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
   background: #fcba03;
   padding: 1px 5px;
@@ -69,7 +69,7 @@ export const Disapproved = styled.Text`
   top: 35px;
   right: 8px;
   color: #fff;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
   background: #f32424;
   padding: 1px 5px;
@@ -84,6 +84,7 @@ export const Resolved = styled.Text`
   background: #5fd068;
   padding: 1px 5px;
   border-radius: 3px;
+  font-size: 13px;
 `;
 
 export const Resolve = styled.TouchableOpacity`
@@ -97,6 +98,7 @@ export const Resolve = styled.TouchableOpacity`
 
 export const TextResolve = styled.Text`
   color: #fff;
+  font-size: 13px;
 `;
 
 export const Data = styled.Text`
@@ -120,7 +122,7 @@ export const Draw = styled.Text`
 export const TextHeader = styled.Text`
   position: absolute;
   color: #fff;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.5);
@@ -143,7 +145,7 @@ export const BoxDescription = styled.View`
 export const TextDescription = styled.Text`
   color: #fff;
   text-align: center;
-  font-size: 15px;
+  font-size: 13px;
 `;
 
 export const TextDisapproved = styled.Text`
