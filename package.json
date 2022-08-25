@@ -16,7 +16,7 @@
     "@react-navigation/stack": "^5.2.14",
     "axios": "0.19.0",
     "date-fns-timezone": "^0.1.4",
-    "jetifier": "^2.0.0",
+    "jetifier": "^1.6.8",
     "moment": "^2.29.1",
     "react": "16.11.0",
     "react-native": "0.62.2",
