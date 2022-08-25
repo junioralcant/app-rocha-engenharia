@@ -181,7 +181,7 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
           
-            resValue "string", "CodePushDeploymentKey", '"<INSERT_PRODUCTION_KEY>"'
+            // resValue "string", "CodePushDeploymentKey", '"<INSERT_PRODUCTION_KEY>"'
         }
     }
 
