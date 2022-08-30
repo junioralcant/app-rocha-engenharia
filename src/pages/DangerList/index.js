@@ -49,7 +49,7 @@ export default function DangerList({navigation}) {
     ImagePicker.showImagePicker(
       {
         title: 'Selecionar imagem',
-        quality: 0.2,
+        quality: 0.1,
       },
       async (upload) => {
         if (upload.error) {
