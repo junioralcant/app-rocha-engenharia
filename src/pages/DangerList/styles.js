@@ -81,7 +81,10 @@ export const Resolved = styled.Text`
   top: 65px;
   right: 8px;
   color: #fff;
-  background: #5fd068;
+  background: ${({type}) =>
+    (type === 'approved' && '#5fd068') ||
+    (type === 'analysis' && '#ffc447') ||
+    (type === 'disapproved' && '#f32424')};
   padding: 1px 5px;
   border-radius: 3px;
   font-size: 13px;

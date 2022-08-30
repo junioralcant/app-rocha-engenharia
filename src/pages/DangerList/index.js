@@ -133,7 +133,17 @@ export default function DangerList({navigation}) {
                       )}
 
                       {danger.resolved === true ? (
-                        <Resolved>Resolvido</Resolved>
+                        <Resolved
+                          type={
+                            (danger.resolvedApproved === 'ANALYSIS' &&
+                              'analysis') ||
+                            (danger.resolvedApproved === 'APPROVAD' &&
+                              'approved') ||
+                            (danger.resolvedApproved === 'DISAPPROVED' &&
+                              'disapproved')
+                          }>
+                          Resolvido
+                        </Resolved>
                       ) : (
                         <Resolve
                           onPress={() => {
