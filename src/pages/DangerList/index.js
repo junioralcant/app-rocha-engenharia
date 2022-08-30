@@ -26,6 +26,7 @@ import {
   Modal,
   Loading,
 } from './styles';
+import {Alert} from 'react-native';
 
 export default function DangerList({navigation}) {
   const [dangers, setDangers] = useState([]);
@@ -141,7 +142,16 @@ export default function DangerList({navigation}) {
                               'approved') ||
                             (danger.resolvedApproved === 'DISAPPROVED' &&
                               'disapproved')
-                          }>
+                          }
+                          onPress={() => {
+                            if (danger.disapprovedReasonResolved) {
+                              Alert.alert(
+                                'Reprovado mensagem',
+                                danger.disapprovedReasonResolved &&
+                                  String(danger.disapprovedReasonResolved),
+                              );
+                            }
+                          }}>
                           Resolvido
                         </Resolved>
                       ) : (
