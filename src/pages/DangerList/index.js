@@ -145,12 +145,14 @@ export default function DangerList({navigation}) {
                           Resolvido
                         </Resolved>
                       ) : (
-                        <Resolve
-                          onPress={() => {
-                            handlerImage(danger._id);
-                          }}>
-                          <TextResolve>Resolver</TextResolve>
-                        </Resolve>
+                        !danger.disapproved && (
+                          <Resolve
+                            onPress={() => {
+                              handlerImage(danger._id);
+                            }}>
+                            <TextResolve>Resolver</TextResolve>
+                          </Resolve>
+                        )
                       )}
 
                       <Data>{date}</Data>
