@@ -58,7 +58,7 @@ export default function DangerList({navigation}) {
           console.log('Used Canceled');
         } else {
           if (upload === null) {
-            alert('Tire uma foto para continuar!');
+            Alert.alert('Tire uma foto para continuar!');
           } else {
             setLoading(true);
 
@@ -75,7 +75,7 @@ export default function DangerList({navigation}) {
 
               setLoading(false);
 
-              alert('Registro resolvido enviado para análise');
+              Alert.alert('Registro resolvido enviado para análise');
 
               navigation.navigate('Home', {
                 params: {back: true},
@@ -85,7 +85,7 @@ export default function DangerList({navigation}) {
             } catch (error) {
               console.log(error);
               setLoading(false);
-              alert('Não é possível resolver problema off-line');
+              Alert.alert('Não é possível resolver problema off-line');
               navigation.navigate('Home', {
                 params: {back: true},
               });
