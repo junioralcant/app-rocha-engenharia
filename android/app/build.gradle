@@ -82,7 +82,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
-// apply from: "../../node_modules/react-native-code-push/android /codepush.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -165,23 +165,23 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
-            // resValue "string", "CodePushDeploymentKey", '""'
+            resValue "string", "CodePushDeploymentKey", '""'
         }
 
-        // releaseStaging {
-        //     resValue "string", "CodePushDeploymentKey", '"<INSERT_STAGING_KEY>"'
-        //     matchingFallbacks = ['release']
-        // }
-
+        releaseStaging {
+            resValue "string", "CodePushDeploymentKey", '"_MPu4tw4eTguXTuxsyD4tiXVYUGfuKC-2Ordn"'
+            matchingFallbacks = ['release']
+        }
+ 
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
             // signingConfig signingConfigs.release
-            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
           
-            // resValue "string", "CodePushDeploymentKey", '"<INSERT_PRODUCTION_KEY>"'
+            resValue "string", "CodePushDeploymentKey", '"3l1wUBqYUmKYitn1h0ggcFVd5aDoJKijXyc0J"'
         }
     }
 
