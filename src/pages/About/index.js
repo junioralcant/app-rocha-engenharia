@@ -6,7 +6,6 @@ import {Container, Header, Title, BoxContent, TextInfo, Image} from './styles';
 
 import Girl from '../../assets/girl.png';
 
-
 const styles = StyleSheet.create({
   banner: {
     resizeMode: 'stretch',
@@ -18,7 +17,6 @@ export default function About() {
   return (
     <Container>
       <Header>
-
         <Image source={Girl} style={styles.banner} />
       </Header>
       <BoxContent>
@@ -34,7 +32,7 @@ export default function About() {
 
         <TextInfo>
           O sistema de gestão recebe, avalia, aprova o registro offline e gera
-          um código da sorte
+          um código da sorte.
         </TextInfo>
 
         <TextInfo>
