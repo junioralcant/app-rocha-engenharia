@@ -3,7 +3,7 @@
 buildscript {
     ext {
         buildToolsVersion = "29.0.0"
-        minSdkVersion = 19
+        minSdkVersion = 21
         compileSdkVersion = 30
         targetSdkVersion = 30
     }
@@ -22,6 +22,12 @@ buildscript {
 }
 
 allprojects {
+        configurations.all {
+        resolutionStrategy {
+            // Remove this override in 0.66, as a proper fix is included in react-native itself.
+            force "com.facebook.react:react-native:0.62.2"
+        }
+    }
     repositories {
         mavenLocal()
         maven {
