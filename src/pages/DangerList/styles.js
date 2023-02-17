@@ -40,7 +40,8 @@ export const Header = styled.View`
   justify-content: center;
   width: 100%;
   height: 50%;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.5);
+
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 `;
