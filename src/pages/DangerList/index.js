@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ActivityIndicator, ScrollView} from 'react-native';
+import {ActivityIndicator, ScrollView, Text} from 'react-native';
 import {parseFromTimeZone, formatToTimeZone} from 'date-fns-timezone';
 import ImagePicker from 'react-native-image-picker';
 
@@ -25,6 +25,7 @@ import {
   Resolved,
   Modal,
   Loading,
+  Category,
 } from './styles';
 import {Alert} from 'react-native';
 
@@ -166,6 +167,7 @@ export default function DangerList({navigation}) {
                       )}
 
                       <Data>{date}</Data>
+                      <Category>{danger.riskCategory}</Category>
                       <Draw>{danger._id}</Draw>
                       <TextHeader>{danger.location}</TextHeader>
                     </Header>

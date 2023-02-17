@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {ScrollView} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
+import RNPickerSelect from 'react-native-picker-select';
 
 import api from '../../Services/api';
 
@@ -33,6 +34,7 @@ export default function DangerRegister({navigation}) {
   const [loading, setLoading] = useState(false);
 
   const [registerForUpload, setRegisterForUpload] = useState('');
+  const [riskCategory, setRiskCategory] = useState('');
 
   function handlerImage() {
     ImagePicker.showImagePicker(
@@ -84,6 +86,7 @@ export default function DangerRegister({navigation}) {
 
         data.append('location', location);
         data.append('description', description);
+        data.append('riskCategory', riskCategory ? riskCategory : 'Outros');
 
         await api.post('/dangers', data);
         setLoading(false);
@@ -109,6 +112,7 @@ export default function DangerRegister({navigation}) {
 
         data.append('location', location);
         data.append('description', description);
+        data.append('riskCategory', riskCategory ? riskCategory : 'Outros');
 
         let object = {
           file: {
@@ -143,7 +147,7 @@ export default function DangerRegister({navigation}) {
     }
   }
 
-  console.log(registerForUpload);
+  console.log(riskCategory);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -165,6 +169,25 @@ export default function DangerRegister({navigation}) {
             onChangeText={setDescription}
             value={description}
             placeholder="Descrição do ocorrido"
+          />
+          <RNPickerSelect
+            onValueChange={(value) => setRiskCategory(value)}
+            placeholder={{label: 'Selecione uma categoria', value: ''}}
+            value={riskCategory}
+            items={[
+              {label: 'Trânsito', value: 'Trânsito'},
+              {label: 'Choque ou incêndio', value: 'Choque ou incêndio'},
+              {label: 'Queda', value: 'Queda'},
+              {label: 'Corte ou fratura', value: 'Corte ou fratura'},
+              {label: 'EPI ou EPC', value: 'EPI ou EPC'},
+              {
+                label: 'Equipamento ou ferramenta',
+                value: 'Equipamento ou ferramenta',
+              },
+              {label: 'Documentação', value: 'Documentação'},
+              {label: 'Pessoas', value: 'Pessoas'},
+              {label: 'Outros', value: 'Outros'},
+            ]}
           />
           {error !== 0 && <Erro>{error}</Erro>}
           {loading ? (
