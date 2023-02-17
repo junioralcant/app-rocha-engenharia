@@ -113,6 +113,15 @@ export const Data = styled.Text`
   font-weight: bold;
 `;
 
+export const Category = styled.Text`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+`;
+
 export const Draw = styled.Text`
   position: absolute;
   top: 10px;
