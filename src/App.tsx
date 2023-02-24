@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import codePush from 'react-native-code-push';
+import React from 'react';
+// import codePush from 'react-native-code-push';
 import * as Sentry from '@sentry/react-native';
 
 import Routes from './routes';
@@ -10,17 +10,6 @@ Sentry.init({
   // We recommend adjusting this value in production.
   tracesSampleRate: 1.0,
 });
-
-function App() {
-  useEffect(() => {
-    codePush.sync({
-      installMode: codePush.InstallMode.IMMEDIATE,
-    });
-  }, []);
-
+export default function App() {
   return <Routes />;
 }
-
-export default codePush({
-  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
-})(App);
